@@ -1,0 +1,41 @@
+{
+  "recommended_for_app": [
+    {
+      "id": "driving-car",
+      "use": "Bilferie i Europa"
+    },
+    {
+      "id": "driving-hgv",
+      "use": "Konservativ profil til bil + campingvogn / stort køretøj; brug køretøjsmål og vægt"
+    },
+    {
+      "id": "cycling-regular",
+      "use": "Almindelig cykel"
+    },
+    {
+      "id": "cycling-electric",
+      "use": "Elcykel"
+    },
+    {
+      "id": "cycling-road",
+      "use": "Landevejscykel"
+    },
+    {
+      "id": "cycling-mountain",
+      "use": "Mountainbike"
+    },
+    {
+      "id": "foot-walking",
+      "use": "Gåture"
+    },
+    {
+      "id": "foot-hiking",
+      "use": "Vandreture"
+    },
+    {
+      "id": "wheelchair",
+      "use": "Tilgængelighed; valgfri men meningsfuld"
+    }
+  ],
+  "note": "Den uploadede ZIP mangler succesfulde wheelchair-responser. Profilen er stadig officiel og kan beholdes i appen."
+}

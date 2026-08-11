@@ -1,0 +1,7 @@
+{
+  "routing": "https://api.heigit.org/openrouteservice",
+  "geocoding": "https://api.heigit.org/pelias/v1",
+  "poi": "https://api.heigit.org/openpoiservice/v0/pois",
+  "elevation": "https://api.heigit.org/openelevationservice/v0",
+  "optimization": "https://api.heigit.org/vroom/v0"
+}

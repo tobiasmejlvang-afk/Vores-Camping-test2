@@ -1,0 +1,45 @@
+{
+  "checked": "2026-08-10",
+  "directions": {
+    "max_distance_km": 6000,
+    "max_waypoints": 50,
+    "max_alternative_routes": 3,
+    "max_distance_alternative_or_round_trip_km": 100,
+    "max_distance_with_avoid_areas_km": 150,
+    "max_avoid_polygon_area_km2": 200,
+    "max_avoid_polygon_extent_km": 20
+  },
+  "isochrones": {
+    "max_locations": 5,
+    "max_intervals": 10,
+    "max_distance_km": 120,
+    "max_time_driving_hours": 1,
+    "max_time_cycling_hours": 5,
+    "max_time_foot_hours": 20
+  },
+  "matrix": {
+    "max_origin_x_destination_combinations": 3500,
+    "max_locations_with_dynamic_arguments": 25
+  },
+  "snap": {
+    "max_locations": 5000
+  },
+  "poi": {
+    "max_area_km2": 50,
+    "max_linestring_length_km": 500,
+    "max_radius_m": 2000,
+    "max_category_ids_per_filter_observed_in_live_api": 5
+  },
+  "elevation": {
+    "max_vertices": 2000
+  },
+  "optimization": {
+    "max_routes": 50,
+    "max_vehicles": 3
+  },
+  "sources": [
+    "https://openrouteservice.org/restrictions/",
+    "https://giscience.github.io/openrouteservice/api-reference/endpoints/",
+    "https://ask.openrouteservice.org/t/deprecating-api-openrouteservice-org-in-favour-of-api-heigit-org/7912"
+  ]
+}

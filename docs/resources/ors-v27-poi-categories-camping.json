@@ -1,0 +1,70 @@
+{
+  "camping": {
+    "camp_site": 103,
+    "caravan_site": 104
+  },
+  "overnight": {
+    "guest_house": 106,
+    "hotel": 108,
+    "motel": 109
+  },
+  "dog": {
+    "veterinary": 123,
+    "pet_shop": 124,
+    "dog_park": 268
+  },
+  "camping_facilities": {
+    "drinking_water": 166,
+    "sanitary_dump_station": 174,
+    "shower": 176,
+    "toilets": 179,
+    "waste_disposal": 181,
+    "water_point": 182
+  },
+  "health": {
+    "defibrillator": 165,
+    "pharmacy": 208,
+    "doctors": 204,
+    "hospital": 206
+  },
+  "food_and_shopping": {
+    "supermarket": 518,
+    "convenience": 451,
+    "cafe": 564,
+    "fast_food": 566,
+    "ice_cream": 568,
+    "restaurant": 570
+  },
+  "car_and_travel": {
+    "car_repair": 590,
+    "car_wash": 592,
+    "charging_station": 593,
+    "ev_charging": 594,
+    "ferry_terminal": 595,
+    "fuel": 596,
+    "parking": 601,
+    "parking_entrance": 602,
+    "parking_space": 603
+  },
+  "cycling": {
+    "bicycle_shop": 429,
+    "bicycle_parking": 583,
+    "bicycle_rental": 584,
+    "bicycle_repair_station": 585
+  },
+  "experiences": {
+    "beach_resort": 263,
+    "nature_reserve": 279,
+    "park": 280,
+    "picnic_table": 281,
+    "playground": 283,
+    "swimming_area": 291,
+    "swimming_pool": 292,
+    "beach": 332,
+    "attraction": 622,
+    "information": 624,
+    "picnic_site": 625,
+    "viewpoint": 627
+  },
+  "note": "Send højst 5 category_ids i samme POI-filter. Del større kategorilister i batches og saml/deduplikér resultaterne."
+}
