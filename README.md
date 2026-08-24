@@ -19,6 +19,16 @@ npx tsc --noEmit
 npm run build
 ```
 
+## GitHub Pages fra `/docs`
+
+Byg den statiske Pages-version:
+
+```bash
+npm run build:pages
+```
+
+Kommandoen erstatter indholdet i `/docs` med en version, der er tilpasset projektstien `/Vores-Camping-test2/`. Vælg derefter **Deploy from a branch**, grenen **main** og mappen **/docs** under repositoryets Pages-indstillinger.
+
 ## Data og privatliv
 
 - Appdata gemmes i browserens lokale lager.
