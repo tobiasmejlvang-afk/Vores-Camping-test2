@@ -22,7 +22,9 @@ export default function PwaRegister() {
       });
     };
 
-    navigator.serviceWorker.register('/sw.js').then(inspectRegistration).catch(() => undefined);
+    const appBase = new URL('./', document.baseURI);
+    const serviceWorkerUrl = new URL('sw.js', appBase);
+    navigator.serviceWorker.register(serviceWorkerUrl.pathname, { scope: appBase.pathname }).then(inspectRegistration).catch(() => undefined);
     const checkForUpdate = () => registration?.update().catch(() => undefined);
     window.addEventListener('online', checkForUpdate);
     return () => { active = false; window.removeEventListener('online', checkForUpdate); };

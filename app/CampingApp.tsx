@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { ChangeEvent, FormEvent, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import Image from './AppImage';
 import MapPanel from './MapPanel';
 import WeatherCard from './WeatherCard';
 import { deleteMediaBlob, getMediaBlob, putMediaBlob } from './media-db';
