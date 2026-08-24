@@ -1,0 +1,19 @@
+import type { MetadataRoute } from 'next';
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: 'Vores Camping',
+    short_name: 'Camping',
+    description: 'Din personlige campingapp til ferier, steder, ruter og minder.',
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#F5F1E6',
+    theme_color: '#233B2E',
+    lang: 'da-DK',
+    categories: ['travel', 'lifestyle'],
+    icons: [
+      { src: '/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+      { src: '/app-icon.webp', sizes: '640x640', type: 'image/webp', purpose: 'maskable' },
+    ],
+  };
+}

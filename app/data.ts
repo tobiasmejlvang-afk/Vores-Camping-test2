@@ -1,0 +1,85 @@
+import type { CampingData } from './types';
+
+export const sampleData: CampingData = {
+  schemaVersion: 1,
+  trips: [
+    {
+      id: 'trip-west-coast',
+      title: 'Sensommer ved Vesterhavet',
+      startDate: '2026-08-22',
+      endDate: '2026-08-31',
+      status: 'active',
+      region: 'Vestjylland',
+      summary: 'Havluft, små stop og god tid langs den jyske vestkyst.',
+      destinationIds: ['site-hvide-sande', 'site-lemvig'],
+      participantIds: ['person-1', 'person-2'],
+      petIds: ['pet-sisi'],
+      coverTone: 'coast',
+    },
+    {
+      id: 'trip-fyn',
+      title: 'Forår på Sydfyn',
+      startDate: '2027-05-12',
+      endDate: '2027-05-18',
+      status: 'planned',
+      region: 'Fyn',
+      summary: 'Øhop, små havne og cykelture i det sydfynske øhav.',
+      destinationIds: ['site-faaborg'],
+      participantIds: ['person-1', 'person-2'],
+      petIds: ['pet-sisi'],
+      coverTone: 'forest',
+    },
+    {
+      id: 'trip-moesgaard',
+      title: 'Efterår omkring Aarhus',
+      startDate: '2025-10-03',
+      endDate: '2025-10-09',
+      status: 'completed',
+      region: 'Østjylland',
+      summary: 'Skov, museum og hyggelige aftener i campingvognen.',
+      destinationIds: ['site-aarhus'],
+      participantIds: ['person-1', 'person-2'],
+      petIds: ['pet-sisi'],
+      coverTone: 'sunset',
+    },
+  ],
+  sites: [
+    { id: 'site-hvide-sande', name: 'Hvide Sande Camping', place: 'Hvide Sande', country: 'Danmark', coordinates: [8.1234, 56.0063], status: 'visited', rating: 4.7, visits: 2, tags: ['Hav', 'Hund', 'Cykling'], note: 'Rolig plads tæt på klitterne.', favorite: true },
+    { id: 'site-lemvig', name: 'Lemvig Strand Camping', place: 'Lemvig', country: 'Danmark', coordinates: [8.2941, 56.5565], status: 'wishlist', rating: 0, visits: 0, tags: ['Fjord', 'Vandring'], note: 'Gem til en tur langs Limfjorden.', favorite: false },
+    { id: 'site-faaborg', name: 'Faaborg Camping', place: 'Faaborg', country: 'Danmark', coordinates: [10.2423, 55.0951], status: 'wishlist', rating: 0, visits: 0, tags: ['Øhav', 'Cykling'], note: 'God base til øhop.', favorite: true },
+    { id: 'site-aarhus', name: 'DCU Aarhus – Blommehaven', place: 'Højbjerg', country: 'Danmark', coordinates: [10.2315, 56.1195], status: 'visited', rating: 4.4, visits: 1, tags: ['Skov', 'By', 'Hund'], note: 'Fin blanding af natur og by.', favorite: false },
+  ],
+  experiences: [
+    { id: 'exp-lighthouse', title: 'Solnedgang ved Lyngvig Fyr', place: 'Hvide Sande', date: '2026-08-23', status: 'done', note: 'Tag den lille termokande med.', tripId: 'trip-west-coast' },
+    { id: 'exp-seafood', title: 'Fiskefrokost på havnen', place: 'Hvide Sande', date: '2026-08-24', status: 'planned', note: 'Find et bord i læ.', tripId: 'trip-west-coast' },
+    { id: 'exp-island', title: 'Cykeltur på Ærø', place: 'Svendborg', date: '2027-05-15', status: 'idea', note: 'Undersøg færgetider senere.' },
+  ],
+  routes: [
+    { id: 'route-west', name: 'Hvide Sande → Lemvig', startSiteId: 'site-hvide-sande', endSiteId: 'site-lemvig', profile: 'caravan', createdAt: '2026-08-22T19:06:00.000Z', tripId: 'trip-west-coast', distanceKm: 84, durationMinutes: 78, geometry: [[8.1234,56.0063],[8.2941,56.5565]] },
+  ],
+  visits: [
+    { id: 'visit-aarhus', siteId: 'site-aarhus', tripId: 'trip-moesgaard', arrivalDate: '2025-10-03', departureDate: '2025-10-09', rating: 4.4, note: 'Rolig plads med kort vej til skov og museum.' },
+  ],
+  notes: [
+    { id: 'note-pack', title: 'Husk inden næste stop', text: 'Fyld vand, tjek gas og køb hundemad.', date: '2026-08-23', tripId: 'trip-west-coast', pinned: true },
+    { id: 'note-view', title: 'God udsigt', text: 'Pladsen ved klitten er perfekt til morgenkaffe.', date: '2026-08-22', tripId: 'trip-west-coast', pinned: false },
+  ],
+  media: [],
+  people: [
+    { id: 'person-1', name: 'Camper 1', kind: 'person', detail: 'Chauffør · Kaffeansvarlig' },
+    { id: 'person-2', name: 'Camper 2', kind: 'person', detail: 'Ruteplanlægger · Fotograf' },
+    { id: 'pet-sisi', name: 'Sisi', kind: 'pet', detail: 'Hund · Turens energibombe' },
+  ],
+  events: [
+    { id: 'event-1', title: 'Nyt stop gemt', detail: 'Lyngvig Fyr', createdAt: '2026-08-23T11:18:00.000Z', type: 'place' },
+    { id: 'event-2', title: 'Rute opdateret', detail: '3 stop · Vesterhavet', createdAt: '2026-08-22T19:06:00.000Z', type: 'trip' },
+    { id: 'event-3', title: 'Ferie aktiveret', detail: 'Sensommer ved Vesterhavet', createdAt: '2026-08-22T08:00:00.000Z', type: 'trip' },
+  ],
+  settings: { mapStyle: 'liberty', automationMode: 'automatic', weatherEnabled: true, reducedMotion: false },
+};
+
+export const emptyData: CampingData = {
+  schemaVersion: 1,
+  trips: [], sites: [], experiences: [], routes: [], visits: [], notes: [], media: [], people: [], events: [],
+  settings: { mapStyle: 'liberty', automationMode: 'automatic', weatherEnabled: false, reducedMotion: false },
+};
