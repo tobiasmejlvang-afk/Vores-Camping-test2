@@ -43,5 +43,5 @@ jobs:
             echo "The generated site is already current."
             exit 0
           fi
-          git commit -m "Build GitHub Pages site [skip ci]"
+          git commit -m "Build GitHub Pages site"
           git push
