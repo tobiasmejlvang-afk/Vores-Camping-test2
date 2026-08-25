@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { emptyData, sampleData } from './data';
 import { clearPendingImport, deleteAllMedia, getMediaBlob, getPendingImport, replaceAllMedia } from './media-db';
-import type { CampingData, TimelineEvent } from './types';
+import type { CampingData, CampingSettings, TimelineEvent } from './types';
 
 const STORAGE_KEY = 'vores-camping:data:v1';
 export const MAX_BACKUP_FILE_BYTES = 250 * 1024 * 1024;
@@ -63,11 +63,18 @@ function prepareCampingData(value: unknown): CampingData {
   if (incoming.schemaVersion !== 1 || arrays.some((entry) => !Array.isArray(entry))) throw new Error('Backupfilen har ikke et understøttet Vores Camping-format.');
   if (!incoming.settings || typeof incoming.settings !== 'object') throw new Error('Backupfilen mangler gyldige indstillinger.');
 
-  const legacySettings = incoming.settings as CampingData['settings'] & { autoLink?: boolean };
+  const legacySettings = incoming.settings as Partial<CampingSettings> & { autoLink?: boolean };
   if (!legacySettings.automationMode) legacySettings.automationMode = legacySettings.autoLink === false ? 'manual' : 'automatic';
+  legacySettings.compactMode ??= false;
+  legacySettings.highContrast ??= false;
+  legacySettings.showCommandCenterOnDashboard ??= true;
+  legacySettings.proactiveGuardEnabled ??= true;
+  legacySettings.smartGuideEnabled ??= true;
+  legacySettings.confirmBeforeDelete ??= true;
   const mapStyles = ['liberty', 'bright', 'positron', 'dark', 'fiord'];
   const automationModes = ['automatic', 'ask', 'manual'];
-  if (!mapStyles.includes(incoming.settings.mapStyle) || !automationModes.includes(incoming.settings.automationMode) || typeof incoming.settings.weatherEnabled !== 'boolean' || typeof incoming.settings.reducedMotion !== 'boolean') throw new Error('Backupfilen indeholder ugyldige indstillinger.');
+  const booleanSettings = [legacySettings.weatherEnabled, legacySettings.reducedMotion, legacySettings.compactMode, legacySettings.highContrast, legacySettings.showCommandCenterOnDashboard, legacySettings.proactiveGuardEnabled, legacySettings.smartGuideEnabled, legacySettings.confirmBeforeDelete];
+  if (!mapStyles.includes(String(legacySettings.mapStyle)) || !automationModes.includes(String(legacySettings.automationMode)) || booleanSettings.some((setting) => typeof setting !== 'boolean')) throw new Error('Backupfilen indeholder ugyldige indstillinger.');
 
   const allItems = [...incoming.trips, ...incoming.sites, ...incoming.experiences, ...incoming.routes, ...incoming.visits, ...incoming.notes, ...incoming.media, ...incoming.people, ...incoming.events];
   const ids = allItems.map((item) => item?.id);
@@ -102,7 +109,18 @@ function prepareCampingData(value: unknown): CampingData {
     media: incoming.media.map((item) => ({ id: item.id, name: item.name, createdAt: item.createdAt, ...(item.tripId ? { tripId: item.tripId } : {}), ...(item.siteId ? { siteId: item.siteId } : {}), favorite: item.favorite })),
     people: incoming.people.map((person) => ({ id: person.id, name: person.name, kind: person.kind, detail: person.detail })),
     events: incoming.events.map((event) => ({ id: event.id, title: event.title, detail: event.detail, createdAt: event.createdAt, type: event.type })),
-    settings: { mapStyle: incoming.settings.mapStyle, automationMode: incoming.settings.automationMode, weatherEnabled: incoming.settings.weatherEnabled, reducedMotion: incoming.settings.reducedMotion },
+    settings: {
+      mapStyle: legacySettings.mapStyle as CampingSettings['mapStyle'],
+      automationMode: legacySettings.automationMode as CampingSettings['automationMode'],
+      weatherEnabled: legacySettings.weatherEnabled as boolean,
+      reducedMotion: legacySettings.reducedMotion as boolean,
+      compactMode: legacySettings.compactMode as boolean,
+      highContrast: legacySettings.highContrast as boolean,
+      showCommandCenterOnDashboard: legacySettings.showCommandCenterOnDashboard as boolean,
+      proactiveGuardEnabled: legacySettings.proactiveGuardEnabled as boolean,
+      smartGuideEnabled: legacySettings.smartGuideEnabled as boolean,
+      confirmBeforeDelete: legacySettings.confirmBeforeDelete as boolean,
+    },
   };
   let activeSeen = false;
   clean.trips.forEach((trip) => { if (trip.status === 'active') { if (activeSeen) trip.status = 'planned'; activeSeen = true; } });

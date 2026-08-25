@@ -75,11 +75,19 @@ export const sampleData: CampingData = {
     { id: 'event-2', title: 'Rute opdateret', detail: '3 stop · Vesterhavet', createdAt: '2026-08-22T19:06:00.000Z', type: 'trip' },
     { id: 'event-3', title: 'Ferie aktiveret', detail: 'Sensommer ved Vesterhavet', createdAt: '2026-08-22T08:00:00.000Z', type: 'trip' },
   ],
-  settings: { mapStyle: 'liberty', automationMode: 'automatic', weatherEnabled: true, reducedMotion: false },
+  settings: {
+    mapStyle: 'liberty', automationMode: 'automatic', weatherEnabled: true, reducedMotion: false,
+    compactMode: false, highContrast: false, showCommandCenterOnDashboard: true,
+    proactiveGuardEnabled: true, smartGuideEnabled: true, confirmBeforeDelete: true,
+  },
 };
 
 export const emptyData: CampingData = {
   schemaVersion: 1,
   trips: [], sites: [], experiences: [], routes: [], visits: [], notes: [], media: [], people: [], events: [],
-  settings: { mapStyle: 'liberty', automationMode: 'automatic', weatherEnabled: false, reducedMotion: false },
+  settings: {
+    mapStyle: 'liberty', automationMode: 'automatic', weatherEnabled: false, reducedMotion: false,
+    compactMode: false, highContrast: false, showCommandCenterOnDashboard: true,
+    proactiveGuardEnabled: true, smartGuideEnabled: true, confirmBeforeDelete: true,
+  },
 };

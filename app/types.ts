@@ -102,6 +102,12 @@ export type CampingSettings = {
   automationMode: 'automatic' | 'ask' | 'manual';
   weatherEnabled: boolean;
   reducedMotion: boolean;
+  compactMode: boolean;
+  highContrast: boolean;
+  showCommandCenterOnDashboard: boolean;
+  proactiveGuardEnabled: boolean;
+  smartGuideEnabled: boolean;
+  confirmBeforeDelete: boolean;
 };
 
 export type CampingData = {
@@ -118,4 +124,4 @@ export type CampingData = {
   settings: CampingSettings;
 };
 
-export type ViewId = 'dashboard' | 'trips' | 'map' | 'sites' | 'album' | 'experiences' | 'notes' | 'people' | 'settings' | 'testcenter';
+export type ViewId = 'dashboard' | 'administration' | 'trips' | 'map' | 'sites' | 'album' | 'experiences' | 'notes' | 'people' | 'settings' | 'testcenter';
