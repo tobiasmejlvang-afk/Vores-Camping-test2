@@ -15,6 +15,10 @@ export const sampleData: CampingData = {
       participantIds: ['person-1', 'person-2'],
       petIds: ['pet-sisi'],
       coverTone: 'coast',
+      mainDestinationId: 'site-hvide-sande',
+      activeSiteId: 'site-hvide-sande',
+      albumStatus: 'collecting',
+      startedAt: '2026-08-22T08:00:00.000Z',
     },
     {
       id: 'trip-fyn',
@@ -28,6 +32,8 @@ export const sampleData: CampingData = {
       participantIds: ['person-1', 'person-2'],
       petIds: ['pet-sisi'],
       coverTone: 'forest',
+      mainDestinationId: 'site-faaborg',
+      albumStatus: 'created',
     },
     {
       id: 'trip-moesgaard',
@@ -41,18 +47,21 @@ export const sampleData: CampingData = {
       participantIds: ['person-1', 'person-2'],
       petIds: ['pet-sisi'],
       coverTone: 'sunset',
+      mainDestinationId: 'site-aarhus',
+      albumStatus: 'completed',
+      completedAt: '2025-10-09T18:00:00.000Z',
     },
   ],
   sites: [
-    { id: 'site-hvide-sande', name: 'Hvide Sande Camping', place: 'Hvide Sande', country: 'Danmark', coordinates: [8.1234, 56.0063], status: 'visited', rating: 4.7, visits: 2, tags: ['Hav', 'Hund', 'Cykling'], note: 'Rolig plads tæt på klitterne.', favorite: true },
-    { id: 'site-lemvig', name: 'Lemvig Strand Camping', place: 'Lemvig', country: 'Danmark', coordinates: [8.2941, 56.5565], status: 'wishlist', rating: 0, visits: 0, tags: ['Fjord', 'Vandring'], note: 'Gem til en tur langs Limfjorden.', favorite: false },
-    { id: 'site-faaborg', name: 'Faaborg Camping', place: 'Faaborg', country: 'Danmark', coordinates: [10.2423, 55.0951], status: 'wishlist', rating: 0, visits: 0, tags: ['Øhav', 'Cykling'], note: 'God base til øhop.', favorite: true },
-    { id: 'site-aarhus', name: 'DCU Aarhus – Blommehaven', place: 'Højbjerg', country: 'Danmark', coordinates: [10.2315, 56.1195], status: 'visited', rating: 4.4, visits: 1, tags: ['Skov', 'By', 'Hund'], note: 'Fin blanding af natur og by.', favorite: false },
+    { id: 'site-hvide-sande', name: 'Hvide Sande Camping', place: 'Hvide Sande', country: 'Danmark', address: 'Tingodden 141, 6960 Hvide Sande', coordinates: [8.1234, 56.0063], locationSource: 'search', status: 'visited', rating: 4.7, visits: 2, tags: ['Hav', 'Hund', 'Cykling'], note: 'Rolig plads tæt på klitterne.', favorite: true },
+    { id: 'site-lemvig', name: 'Lemvig Strand Camping', place: 'Lemvig', country: 'Danmark', address: 'Vinkelhagevej 6, 7620 Lemvig', coordinates: [8.2941, 56.5565], locationSource: 'search', status: 'wishlist', rating: 0, visits: 0, tags: ['Fjord', 'Vandring'], note: 'Gem til en tur langs Limfjorden.', favorite: false },
+    { id: 'site-faaborg', name: 'Faaborg Camping', place: 'Faaborg', country: 'Danmark', address: 'Odensevej 140, 5600 Faaborg', coordinates: [10.2423, 55.0951], locationSource: 'search', status: 'wishlist', rating: 0, visits: 0, tags: ['Øhav', 'Cykling'], note: 'God base til øhop.', favorite: true },
+    { id: 'site-aarhus', name: 'DCU Aarhus – Blommehaven', place: 'Højbjerg', country: 'Danmark', address: 'Ørneredevej 35, 8270 Højbjerg', coordinates: [10.2315, 56.1195], locationSource: 'search', status: 'visited', rating: 4.4, visits: 1, tags: ['Skov', 'By', 'Hund'], note: 'Fin blanding af natur og by.', favorite: false },
   ],
   experiences: [
-    { id: 'exp-lighthouse', title: 'Solnedgang ved Lyngvig Fyr', place: 'Hvide Sande', date: '2026-08-23', status: 'done', note: 'Tag den lille termokande med.', tripId: 'trip-west-coast' },
-    { id: 'exp-seafood', title: 'Fiskefrokost på havnen', place: 'Hvide Sande', date: '2026-08-24', status: 'planned', note: 'Find et bord i læ.', tripId: 'trip-west-coast' },
-    { id: 'exp-island', title: 'Cykeltur på Ærø', place: 'Svendborg', date: '2027-05-15', status: 'idea', note: 'Undersøg færgetider senere.' },
+    { id: 'exp-lighthouse', title: 'Solnedgang ved Lyngvig Fyr', place: 'Hvide Sande', date: '2026-08-23', status: 'done', note: 'Tag den lille termokande med.', tripId: 'trip-west-coast', kind: 'attraction', coordinates: [8.1057, 56.0507] },
+    { id: 'exp-seafood', title: 'Fiskefrokost på havnen', place: 'Hvide Sande', date: '2026-08-24', status: 'planned', note: 'Find et bord i læ.', tripId: 'trip-west-coast', kind: 'experience', coordinates: [8.1247, 55.9987] },
+    { id: 'exp-island', title: 'Cykeltur på Ærø', place: 'Svendborg', date: '2027-05-15', status: 'idea', note: 'Undersøg færgetider senere.', kind: 'experience' },
   ],
   routes: [
     { id: 'route-west', name: 'Hvide Sande → Lemvig', startSiteId: 'site-hvide-sande', endSiteId: 'site-lemvig', profile: 'caravan', createdAt: '2026-08-22T19:06:00.000Z', tripId: 'trip-west-coast', distanceKm: 84, durationMinutes: 78, geometry: [[8.1234,56.0063],[8.2941,56.5565]] },
@@ -79,6 +88,8 @@ export const sampleData: CampingData = {
     mapStyle: 'liberty', automationMode: 'automatic', weatherEnabled: true, reducedMotion: false,
     compactMode: false, highContrast: false, showCommandCenterOnDashboard: true,
     proactiveGuardEnabled: true, smartGuideEnabled: true, confirmBeforeDelete: true,
+    autoCollectTripData: true, dashboardClockEnabled: true, dashboardAlbumEnabled: true,
+    liveRoutingEnabled: true, externalSearchEnabled: true, weatherAdviceEnabled: true,
   },
 };
 
@@ -89,5 +100,7 @@ export const emptyData: CampingData = {
     mapStyle: 'liberty', automationMode: 'automatic', weatherEnabled: false, reducedMotion: false,
     compactMode: false, highContrast: false, showCommandCenterOnDashboard: true,
     proactiveGuardEnabled: true, smartGuideEnabled: true, confirmBeforeDelete: true,
+    autoCollectTripData: true, dashboardClockEnabled: true, dashboardAlbumEnabled: true,
+    liveRoutingEnabled: true, externalSearchEnabled: true, weatherAdviceEnabled: true,
   },
 };
